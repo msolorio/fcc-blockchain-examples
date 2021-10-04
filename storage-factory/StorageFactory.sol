@@ -7,15 +7,15 @@ import "./SimpleStorage.sol";
 contract StorageFactory {
     SimpleStorage[] public simpleStorageArray;
 
+    // creates a simple storage contract and adds to array
     function createSimpleStorageContract() public {
         SimpleStorage simpleStorage = new SimpleStorage();
 
         simpleStorageArray.push(simpleStorage);
     }
 
-    function sfStore(uint256 _simpleStorageIdx, uint256 _simpleStorageNumber)
-        public
-    {
+    // stores a fav number for the contract at the specified idx
+    function sfStore(uint256 _simpleStorageIdx, uint256 _simpleStorageNumber) public {
         // Address of contract
         // ABI (application binary interface) of contract
 
@@ -24,6 +24,7 @@ contract StorageFactory {
         simpleStorage.store(_simpleStorageNumber);
     }
 
+    // gets the fav number for the contract at the specified idx
     function sfGet(uint256 _simpleStorageIdx) public view returns (uint256) {
         SimpleStorage simpleStorage = simpleStorageArray[_simpleStorageIdx];
 
